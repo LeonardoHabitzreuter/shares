@@ -1,0 +1,17 @@
+{
+  "name": "shares",
+  "version": "1.0.0",
+  "author": "leonardo habitzreuter <https://github.com/leonardohabitzreuter>",
+  "license": "MIT",
+  "scripts": {
+    "start": "./node_modules/.bin/parcel --port 3000 watch ./index.html --no-cache"
+  },
+  "devDependencies": {
+    "parcel-bundler": "^1.12.3"
+  },
+  "dependencies": {
+    "ramda": "^0.26.1",
+    "react": "^16.8.5",
+    "react-dom": "^16.8.5"
+  }
+}

@@ -1,4 +1,4 @@
-import React, {useState, useMemo} from 'react'
+import React, { useState } from 'react'
 import { over, lensProp, pipe, map, filter, prop, when, isNil, not, always } from 'ramda'
 import myShares from '../shares.json'
 import Share from './Share'
@@ -10,7 +10,7 @@ const castPropDate = castProp(lensDate)
 
 const shares = pipe(
   map(castPropDate),
-  map(castProp(lensProp('sellDate'))),
+  map(castProp(lensProp('sellDate')))
 )(myShares.records)
 const dividends = myShares.dividends.map(castPropDate)
 
@@ -29,25 +29,25 @@ const App = () => {
   const Sold = filterShares(true)
 
   return (
-    <main className="p-5">
+    <main className='p-5'>
       <h3>All profit beyond the goal:
-        <span className="text-success"> R${allProfit(shares).toFixed(2)}</span>
+        <span className='text-success'> R${allProfit(shares).toFixed(2)}</span>
       </h3>
-      <article className="d-flex mt-3">
-        <button className="btn btn-primary" onClick={() => setShowSold(false)}>MyWallet</button>
-        <button className="ml-2 btn btn-secondary" onClick={() => setShowSold(true)}>Sold</button>
+      <article className='d-flex mt-3'>
+        <button className='btn btn-primary' onClick={() => setShowSold(false)}>MyWallet</button>
+        <button className='ml-2 btn btn-secondary' onClick={() => setShowSold(true)}>Sold</button>
       </article>
-      <table className="mt-3 bg-light border">
+      <table className='mt-3 bg-light border'>
         <thead>
           <tr>
-            <th className="p-3">Id</th>
-            <th className="p-3">Share</th>
-            <th className="p-3">Price</th>
-            <th className="p-3">Amount</th>
-            <th className="p-3">Cost</th>
-            <th className="p-3">Date</th>
-            <th className="p-3">Sell price</th>
-            <th className="p-3">Actions</th>
+            <th className='p-3'>Id</th>
+            <th className='p-3'>Share</th>
+            <th className='p-3'>Price</th>
+            <th className='p-3'>Amount</th>
+            <th className='p-3'>Cost</th>
+            <th className='p-3'>Date</th>
+            <th className='p-3'>Sell price</th>
+            <th className='p-3'>Actions</th>
           </tr>
         </thead>
         <tbody>

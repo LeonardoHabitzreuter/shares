@@ -1,22 +1,45 @@
-# Shares
+# shares
+My shares
 
-create shares.json file containing the current structure:
-{
-  "goal": 1.1,
-  "records": [{
-    "id": 1,
-    "share": "BOVA11",
-    "price": 84.99,
-    "amount": 40,
-    "cost": 24.18,
-    "date": "12/10/2018",
-    "sellPrice": 95,
-    "sellDate": "03/13/2019",
-    "profitBeyondGoal": 288.98
-  }],
-  "dividends": [{
-    "share": "ITSA4",
-    "price": 90.64,
-    "date": "03/05/2019"
-  }]
-}
+[![JavaScript Style Guide](https://cdn.rawgit.com/standard/standard/master/badge.svg)](https://github.com/standard/standard)
+
+[![jest](https://facebook.github.io/jest/img/jest-badge.svg)](https://github.com/facebook/jest)
+
+## Setting up the project
+
+Install [nodeJs](http://nodejs.org/en/download/) on your local machine if you don't already have it
+
+**Installing the dependencies:**
+```
+npm install
+```
+
+## Running the development server
+
+```
+npm run dev
+```
+
+## We use the standard styleguide, for code checking run the following code below
+
+```
+npm run lint
+```
+
+## Running the tests
+
+```
+npm test
+```
+
+## Building production package
+
+```
+npm run build
+```
+
+## Running production server
+
+```
+npm start
+```

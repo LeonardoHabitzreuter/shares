@@ -1,17 +1,61 @@
 {
   "name": "shares",
   "version": "1.0.0",
-  "author": "leonardo habitzreuter <https://github.com/leonardohabitzreuter>",
-  "license": "MIT",
+  "description": "My shares",
+  "main": "src/index.js",
   "scripts": {
-    "start": "./node_modules/.bin/parcel --port 3000 watch ./index.html --no-cache"
+    "lint": "./node_modules/.bin/standard --parser babel-eslint",
+    "test": "./node_modules/.bin/jest",
+    "test:watch": "npm test -- --watchAll",
+    "dev": "next",
+    "build": "next build",
+    "start": "next start"
   },
-  "devDependencies": {
-    "parcel-bundler": "^1.12.3"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LeonardoHabitzreuter/shares.git"
+  },
+  "keywords": [
+    "JS",
+    "React",
+    "Next"
+  ],
+  "author": "Leonardo Habitzreuter <github.com/leonardohabitzreuter>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/LeonardoHabitzreuter/shares/issues"
+  },
+  "homepage": "https://github.com/LeonardoHabitzreuter/shares#readme",
+  "standard": {
+    "parser": "babel-eslint",
+    "globals": [
+      "describe",
+      "expect",
+      "localStorage",
+      "test"
+    ]
   },
   "dependencies": {
+    "@zeit/next-stylus": "^1.0.1",
+    "classnames": "^2.2.6",
+    "next": "^8.0.3",
+    "prop-types": "^15.7.2",
     "ramda": "^0.26.1",
     "react": "^16.8.5",
-    "react-dom": "^16.8.5"
+    "react-dom": "^16.8.5",
+    "stylus": "^0.54.5"
+  },
+  "devDependencies": {
+    "@babel/plugin-proposal-export-default-from": "7.2.0",
+    "@babel/plugin-transform-runtime": "7.0.0",
+    "@babel/preset-env": "7.0.0",
+    "@babel/preset-react": "7.0.0",
+    "babel-eslint": "^10.0.1",
+    "enzyme": "^3.9.0",
+    "enzyme-adapter-react-16": "^1.12.1",
+    "enzyme-to-json": "^3.3.5",
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "^24.8.0",
+    "standard": "^12.0.1"
   }
 }

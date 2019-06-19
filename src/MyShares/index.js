@@ -47,7 +47,7 @@ const App = () => {
             <th className='p-3'>Cost</th>
             <th className='p-3'>Date</th>
             <th className='p-3'>Sell price</th>
-            <th className='p-3'>Actions</th>
+            <th className='p-3 d-flex justify-content-center'>{showSold ? 'Profit beyond goal' : 'Calculate'}</th>
           </tr>
         </thead>
         <tbody>

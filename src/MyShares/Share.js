@@ -19,9 +19,8 @@ const Share = curry((shares, dividends, share) => {
         <input disabled={!!share.sellPrice} value={sellPrice || ''} onChange={e => setSellPrice(e.target.value)} />
       </td>
       <td className='p-3'>
-        {share.sellPrice
-          ? <i title='detail' className='fas fa-window-maximize' onClick={() => showProfitBeyondGoal(shares, dividends, share)} />
-          : <i title='calculate' className='fas fa-calculator' onClick={() => showProfitBeyondGoal(shares, dividends, share, sellPrice)} />
+        {share.profitBeyondGoal ||
+          <i title='calculate' className='fas fa-calculator' onClick={() => showProfitBeyondGoal(shares, dividends, share, sellPrice)} />
         }
       </td>
     </tr>

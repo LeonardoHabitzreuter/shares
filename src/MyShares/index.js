@@ -3,6 +3,7 @@ import { over, lensProp, pipe, map, filter, prop, when, isNil, not, always } fro
 import myShares from '../shares.json'
 import Share from './Share'
 import { allProfit } from './calc'
+import Money from './Money'
 
 const lensDate = lensProp('date')
 const castProp = a => over(a, x => x ? new Date(x) : null)
@@ -31,7 +32,7 @@ const App = () => {
   return (
     <main className='p-5'>
       <h3>All profit beyond the goal:
-        <span className='text-success'> R${allProfit(shares).toFixed(2)}</span>
+        <Money value={allProfit(shares).toFixed(2)} />
       </h3>
       <article className='d-flex mt-3'>
         <button className='btn btn-primary' onClick={() => setShowSold(false)}>MyWallet</button>

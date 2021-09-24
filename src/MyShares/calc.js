@@ -22,7 +22,7 @@ const sumDividends = () => pipe(
   sum
 )(dividends)
 
-export const calcProfit = (shares, { share, price, cost, amount, date, sellPrice, sellDate: x }, sell) => {
+export const calcProfit = ({ share, price, cost, amount, date, sellPrice, sellDate: x }, sell) => {
   const sellDate = x || new Date()
 
   const payed = ((price * amount) + cost).toFixed(2)
@@ -33,8 +33,8 @@ export const calcProfit = (shares, { share, price, cost, amount, date, sellPrice
 }
 
 /* eslint-disable no-undef */
-export const showProfitBeyondGoal = (shares, share, sell) => {
-  alert(`ProfitBeyondGoal: ${share.profitBeyondGoal || calcProfit(shares, share, sell)}`)
+export const showProfitBeyondGoal = (share, sell) => {
+  alert(`ProfitBeyondGoal: ${share.profitBeyondGoal || calcProfit(share, sell)}`)
 }
 
 export const allProfit = pipe(

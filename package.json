@@ -7,7 +7,7 @@
     "lint": "./node_modules/.bin/standard --parser babel-eslint",
     "test": "./node_modules/.bin/jest",
     "test:watch": "npm test -- --watchAll",
-    "dev": "next",
+    "dev": "next -p 5555",
     "build": "next build",
     "start": "next start"
   },

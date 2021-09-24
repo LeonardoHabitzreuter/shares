@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { over, lensProp, pipe, map, filter, prop, when, isNil, not, always } from 'ramda'
-import { records } from '../shares.json'
+import records from '../shares.json'
 import Share from './Share'
 import { allProfit } from './calc'
 import Money from './Money'
@@ -20,7 +20,7 @@ const filterShares = showSold => pipe(
     isNil,
     when(always(showSold), not)
   )),
-  map(Share(shares))
+  map(Share)
 )(shares)
 
 const App = () => {

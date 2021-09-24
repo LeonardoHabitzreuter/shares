@@ -5,7 +5,7 @@ import Money from './Money'
 
 const parseDate = x => x.toLocaleDateString('pt-BR', { year: 'numeric', month: 'numeric', day: 'numeric' })
 
-const Share = curry((shares, share) => {
+const Share = share => {
   const [sellPrice, setSellPrice] = useState(share.sellPrice)
 
   return (
@@ -22,11 +22,11 @@ const Share = curry((shares, share) => {
       <td className='p-3'>
         {share.profitBeyondGoal
           ? <Money value={share.profitBeyondGoal} />
-          : <i title='calculate' className='fas fa-calculator' onClick={() => showProfitBeyondGoal(shares, share, sellPrice)} />
+          : <i title='calculate' className='fas fa-calculator' onClick={() => showProfitBeyondGoal(share, sellPrice)} />
         }
       </td>
     </tr>
   )
-})
+}
 
 export default Share

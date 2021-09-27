@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { over, lensProp, pipe, map, filter, prop, when, isNil, not, always } from 'ramda'
 import records from '../shares.json'
 import Share from './Share'
-import { allProfit } from './calc'
+import { allProfit, sumDividends } from './calc'
 import Money from './Money'
 
 const lensDate = lensProp('date')
@@ -31,7 +31,10 @@ const App = () => {
   return (
     <main className='p-5'>
       <h3>All profit beyond the goal:
-        <Money value={allProfit(shares).toFixed(2)} />
+        <Money value={allProfit(shares)} />
+      </h3>
+      <h3>Dividends sum:
+        <Money value={sumDividends()} />
       </h3>
       <article className='d-flex mt-3'>
         <button className='btn btn-primary' onClick={() => setShowSold(false)}>MyWallet</button>

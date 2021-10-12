@@ -1,44 +1,57 @@
-import { pipe, curry, add, filter, propEq, allPass, map, prop, sum, isEmpty, isNil, not } from 'ramda'
-import dividends from '../dividends.json'
-
-const ONE_DAY = 1000 * 3600 * 24
-const GOAL = 0.1
-
-const filterByDate = curry((prop, date, arr) => filter(
-  allPass([
-    propEq('share', prop),
-    date
-  ])
-)(arr))
-
-const sumByProp = curry((a, b) => pipe(
-  map(prop(a)),
+import {
+  pipe,
+  curry,
+  add,
+  filter,
+  propEq,
+  allPass,
+  map,
+  prop,
   sum,
-  y => y.toFixed(2)
-)(b))
+  isEmpty,
+  isNil,
+  not,
+} from "ramda";
+import dividends from "../dividends.json";
 
-export const sumDividends = () => pipe(
-  map(prop('price')),
-  sum
-)(dividends)
+const ONE_DAY = 1000 * 3600 * 24;
+const GOAL = 0.1;
+const ItauXPSeggregation = 1270.32;
 
-export const calcProfit = ({ share, price, cost, amount, date, sellPrice, sellDate: x }, sell) => {
-  const sellDate = x || new Date()
+const filterByDate = curry((prop, date, arr) =>
+  filter(allPass([propEq("share", prop), date]))(arr)
+);
 
-  const payed = ((price * amount) + cost).toFixed(2)
-  const profit = (((sellPrice || sell) * amount) - payed)
-  const appDays = Math.ceil(Math.abs((sellDate).getTime() - date.getTime()) / ONE_DAY) - 1
-  const goalProfitPerDays = (payed * GOAL) / 365
-  return profit - (appDays * goalProfitPerDays.toFixed(10))
-}
+const sumByProp = curry((a, b) =>
+  pipe(map(prop(a)), sum, (y) => y.toFixed(2))(b)
+);
+
+export const sumDividends = () => pipe(map(prop("price")), sum)(dividends);
+
+export const calcProfit = (
+  { share, price, cost, amount, date, sellPrice, sellDate: x },
+  sell
+) => {
+  const sellDate = x || new Date();
+
+  const payed = (price * amount + cost).toFixed(2);
+  const profit = (sellPrice || sell) * amount - payed;
+  const appDays =
+    Math.ceil(Math.abs(sellDate.getTime() - date.getTime()) / ONE_DAY) - 1;
+  const goalProfitPerDays = (payed * GOAL) / 365;
+  return profit - appDays * goalProfitPerDays.toFixed(10);
+};
 
 /* eslint-disable no-undef */
 export const showProfitBeyondGoal = (share, sell) => {
-  alert(`ProfitBeyondGoal: ${share.profitBeyondGoal || calcProfit(share, sell)}`)
-}
+  alert(
+    `ProfitBeyondGoal: ${share.profitBeyondGoal || calcProfit(share, sell)}`
+  );
+};
 
 export const allProfit = pipe(
-  map(prop('profitBeyondGoal')),
+  map(prop("profitBeyondGoal")),
   filter(pipe(isNil, not)),
-  sum
-)
+  sum,
+  add(ItauXPSeggregation)
+);

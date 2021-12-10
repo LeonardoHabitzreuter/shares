@@ -16,7 +16,7 @@ import dividends from "../dividends.json";
 
 const ONE_DAY = 1000 * 3600 * 24;
 const GOAL = 0.1;
-const ItauXPSeggregation = 1270.32;
+const ItauXPSeggregation = 1424,37;
 
 const filterByDate = curry((prop, date, arr) =>
   filter(allPass([propEq("share", prop), date]))(arr)
